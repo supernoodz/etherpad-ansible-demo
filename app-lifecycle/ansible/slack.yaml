@@ -1,0 +1,14 @@
+---
+- name: Test Slack Integration Module
+  hosts: localhost
+  vars:
+    - slack_token: T01DXJFQCJJ/B01EU1RS0JD/KRHbXridaKyyNdp45l7NLIuJ
+    - app: Etherpad
+  collections:
+    - community.general
+  tasks:
+  - name: Send notification message via Slack
+    slack:
+      token: "{{slack_token}}"
+      msg: 'The app "{{APPLICATION}}" has been deployed successfully'
+    delegate_to: localhost

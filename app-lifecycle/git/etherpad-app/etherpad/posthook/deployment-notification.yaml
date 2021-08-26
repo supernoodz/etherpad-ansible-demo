@@ -1,0 +1,14 @@
+---
+apiVersion: tower.ansible.com/v1alpha1
+kind: AnsibleJob
+metadata:
+  name: slack-notification
+  namespace: etherpad
+  labels:
+    app.kubernetes.io/name: etherpad
+spec:
+  tower_auth_secret: toweraccess
+  job_template_name: Slack
+  extra_vars:
+    #CLUSTER: baremetal-uk
+    APPLICATION: Etherpad
